@@ -23,9 +23,81 @@ const { NotImplementedError } = require('../extensions/index.js');
  *  [1, 1, 1]
  * ]
  */
-function minesweeper(/* matrix */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+function minesweeper( matrix ) {
+  /*let result = [];
+  for (let i = 0; i < result.length; i++) {
+    result[i] = matrix[i].slice();
+  }
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[0].length; j++) {
+      let digit = 0;
+      
+      if (i === 0 && matrix[i] !== undefined) {
+        (matrix[i][j - 1] === true && matrix[i] !== undefined) ? digit++ : (digit = digit);
+        (matrix[i][j + 1] === true && matrix[i] !== undefined)? digit++ : (digit = digit);
+        (matrix[i + 1][j] === true && matrix[i+1] !== undefined)? digit++ : (digit = digit);
+        (matrix[i + 1][j - 1] === true && matrix[i+1] !== undefined) ? digit++ : (digit = digit);
+        (matrix[i + 1][j + 1] === true && matrix[i+1] !== undefined) ? digit++ : (digit = digit);
+      }
+      
+      else if (i === matrix.length -1) {
+        (matrix[i][j - 1] === true && matrix[i] !== undefined) ? digit++ : (digit = digit);
+        (matrix[i][j + 1] === true && matrix[i] !== undefined) ? digit++ : (digit = digit);
+        (matrix[i - 1][j ] === true &&  matrix[i-1] !== undefined) ? digit++ : (digit = digit);
+        (matrix[i - 1][j - 1] === true &&  matrix[i-1] !== undefined) ? digit++ : (digit = digit);
+        (matrix[i - 1][j + 1] === true &&  matrix[i-1] !== undefined) ? digit++ : (digit = digit);
+      }
+      
+      else if(matrix[i - 1] !== undefined) {
+        (matrix[i][j - 1] === true && matrix[i] !== undefined) ? digit++ : (digit = digit);
+        (matrix[i][j + 1] === true && matrix[i] !== undefined) ? digit++ : (digit = digit);
+        (matrix[i - 1][j] === true && matrix[i-1] !== undefined) ? digit++ : (digit = digit);
+        (matrix[i - 1][j - 1] === true && matrix[i-1] !== undefined) ? digit++ : (digit = digit);
+        (matrix[i - 1][j + 1] === true && matrix[i-1] !== undefined) ? digit++ : (digit = digit);
+        (matrix[i + 1][j] === true && matrix[i+1] !== undefined) ? digit++ : (digit = digit);
+        (matrix[i + 1][j - 1] === true && matrix[i+1] !== undefined) ? digit++ : (digit = digit);
+        (matrix[i + 1][j + 1] === true && matrix[i+1] !== undefined) ? digit++ : (digit = digit);
+      }
+      result[i][j] = digit;
+    }
+  }*/
+  
+    let result = [];
+    for (let i = 0; i < matrix.length; i++) {
+      let resline = [];
+      for (let j = 0; j < matrix[i].length; j++) {
+        let digit = 0;
+        if (i === 0) {
+          matrix[i][j - 1] === true ? digit++ : (digit = digit);
+          matrix[i][j + 1] === true ? digit++ : (digit = digit);
+          matrix[i + 1][j] === true ? digit++ : (digit = digit);
+          matrix[i + 1][j - 1] === true ? digit++ : (digit = digit);
+          matrix[i + 1][j + 1] === true ? digit++ : (digit = digit);
+        }
+        else if (i === matrix.length - 1) {
+          matrix[i][j - 1] === true ? digit++ : (digit = digit);
+          matrix[i][j + 1] === true ? digit++ : (digit = digit);
+          matrix[i - 1][j] === true ? digit++ : (digit = digit);
+          matrix[i - 1][j - 1] === true ? digit++ : (digit = digit);
+          matrix[i - 1][j + 1] === true ? digit++ : (digit = digit);
+        }
+        else {
+          matrix[i][j - 1] === true ? digit++ : (digit = digit);
+          matrix[i][j + 1] === true ? digit++ : (digit = digit);
+          matrix[i - 1][j] === true ? digit++ : (digit = digit);
+          matrix[i - 1][j - 1] === true ? digit++ : (digit = digit);
+          matrix[i - 1][j + 1] === true ? digit++ : (digit = digit);
+          matrix[i + 1][j] === true ? digit++ : (digit = digit);
+          matrix[i + 1][j - 1] === true ? digit++ : (digit = digit);
+          matrix[i + 1][j + 1] === true ? digit++ : (digit = digit);
+        }
+        resline.push(digit);
+      }
+      result.push(resline);
+    }
+    
+  return result;
+
 }
 
 module.exports = {
